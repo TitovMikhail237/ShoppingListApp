@@ -7,7 +7,8 @@ import androidx.appcompat.app.AppCompatDialog
 import com.example.shoppinglistapp.data.db.entities.ShoppingItem
 import com.example.shoppinglistapp.databinding.DialogAddShoppingItemBinding
 
-class AddShoppingItemDialog(context: Context, var addDialogListener: AddDialogListener): AppCompatDialog(context) {
+class AddShoppingItemDialog(context: Context, var addDialogListener: AddDialogListener) :
+    AppCompatDialog(context) {
 
     private lateinit var binding: DialogAddShoppingItemBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +20,7 @@ class AddShoppingItemDialog(context: Context, var addDialogListener: AddDialogLi
             val name = binding.etName.text.toString()
             val amount = binding.etAmount.text.toString()
 
-            if(name.isEmpty() || amount.isEmpty()){
+            if (name.isEmpty() || amount.isEmpty()) {
                 Toast.makeText(context, "Please enter information", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }

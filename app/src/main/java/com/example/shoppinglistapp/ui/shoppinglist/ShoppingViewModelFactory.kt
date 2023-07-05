@@ -7,7 +7,7 @@ import com.example.shoppinglistapp.data.repositories.ShoppingRepository
 @Suppress("UNCHECKED_CAST")
 class ShoppingViewModelFactory(
     private var repository: ShoppingRepository
-): ViewModelProvider.NewInstanceFactory() {
+) : ViewModelProvider.NewInstanceFactory() {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return ShoppingViewModel(repository) as T
     }

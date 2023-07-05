@@ -14,18 +14,20 @@ class ShoppingItemAdapter(
     private val viewModel: ShoppingViewModel
 ) : RecyclerView.Adapter<ShoppingItemAdapter.ShoppingViewHolder>() {
 
-   inner class ShoppingViewHolder(val shoppingItemBinding: ShoppingItemBinding) : RecyclerView.ViewHolder(shoppingItemBinding.root)
+    inner class ShoppingViewHolder(val shoppingItemBinding: ShoppingItemBinding) :
+        RecyclerView.ViewHolder(shoppingItemBinding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoppingViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val shoppingItemBinding = ShoppingItemBinding.inflate(layoutInflater, parent, false)
-        return ShoppingViewHolder(shoppingItemBinding)    }
+        return ShoppingViewHolder(shoppingItemBinding)
+    }
 
     override fun onBindViewHolder(holder: ShoppingViewHolder, position: Int) {
-       val curShoppingItem = items[position]
+        val curShoppingItem = items[position]
 
         holder.shoppingItemBinding.tvName.text = curShoppingItem.name
-        holder.shoppingItemBinding.tvAmount.text ="${curShoppingItem.amount}"
+        holder.shoppingItemBinding.tvAmount.text = "${curShoppingItem.amount}"
 
         holder.shoppingItemBinding.ivDelete.setOnClickListener {
             viewModel.delete(curShoppingItem)
@@ -37,7 +39,7 @@ class ShoppingItemAdapter(
         }
 
         holder.shoppingItemBinding.ivMinus.setOnClickListener {
-            if(curShoppingItem.amount > 0){
+            if (curShoppingItem.amount > 0) {
                 curShoppingItem.amount--
                 viewModel.upsert(curShoppingItem)
             }

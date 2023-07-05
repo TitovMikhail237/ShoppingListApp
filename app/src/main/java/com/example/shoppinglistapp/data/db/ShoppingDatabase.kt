@@ -13,7 +13,6 @@ import com.example.shoppinglistapp.data.db.entities.ShoppingItem
 abstract class ShoppingDatabase : RoomDatabase() {
 
     abstract fun getShoppingDao(): ShoppingDao
-
     companion object {
         @Volatile
         private var instance: ShoppingDatabase? = null
